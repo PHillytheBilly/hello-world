@@ -1,5 +1,47 @@
-public class Test{
-  public static void main(String args[]){
-    System.out.print("Hello World");
-  }
+package subsystem;
+import net.dv8tion.jda.core.entities.Message;
+import net.dv8tion.jda.core.entities.MessageChannel;
+import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.core.hooks.ListenerAdapter;
+
+import java.util.*;
+public class Sloth extends ListenerAdapter {
+
+	public Sloth() {
+		// TODO Auto-generated constructor stub
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		@Override
+		public void onMessageReceived(MessageReceivedEvent event){
+			Message message = event.getMessage(); 
+			String msg = message.getContentDisplay();
+			if(msg.equals("!sloth")){
+				MessageChannel channel = event.getChannel();
+				int random = (int)java.lang.Math.random()*2;
+				switch(random){
+				case 0:channel.sendMessage("Sloths only urinate/defecate once a week.");
+				break;
+				case 1:channel.sendMessage("Sloths defecate and urinate at the same place every time and because of this they are vulnerable to predators.");
+				break;
+				/*case 2:;
+				break;
+				case 3:;
+				break;
+				case 4:;
+				break;
+				case 5:;
+				break;
+				case 6:;
+				break;
+				case 7:;
+				break;
+				case 8:;
+				break;
+				case 9:;
+				break;*/
+				}
+			}
+		}
+	}
 }
